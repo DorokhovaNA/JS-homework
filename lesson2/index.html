@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+           /*Задание 1 
+                    Почему код даёт именно такие результаты?
+                var a = 1, b = 1, c, d;
+                c = ++a; alert(c);           // 2, т.к. префиксная запись инкремента, то сначала добавляем единицу к а (а=2)
+                 и потом присваиваем с новое значение а, 
+            
+                d = b++; alert(d);           // 1,  постфиксная запись, поэтому сначала d присваиваем значение b=1, а после 
+                b становится = 2;
+                c = (2+ ++a); alert(c);      // 5, префиксная запись инкремента, добавляем единицу к а (а=3), с присваивается значение 5
+                d = (2+ b++); alert(d);      // 4, постфиксная запись, поэтому сначала выполняем 2+2, а после 
+                b становится = 3;
+                alert(a);                    // 3
+                alert(b);                    // 3   */
+
+
+            /*Задание 2
+                    Чему будет равен x в примере ниже?
+
+            var a = 2;
+		    var x = 1 + (a *= 2); /* X будет равен 5 т.к. оператор *= это сокращенный оператор, полностью он будет выглядеть x 	
+					= 1 + (a = a * 2 ) */
+    </script>
+
+            <!--Задание 3--
+                Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:
+                если a и b положительные, вывести их разность;
+                если а и b отрицательные, вывести их произведение;
+                если а и b разных знаков, вывести их сумму; ноль можно считать положительным числом.--> 
+    <script>
+        var a = +prompt("Введите любое целое число a");
+        var b = +prompt("Введите любое целое число b");
+
+        if(a>=0 && b>= 0) { //a и b положительные, выводим их разность
+            alert(a-b);
+        } else if (a< 0 && b<0) { //а и b отрицательные, выводим их произведение
+                alert(a*b);
+        } else {
+            alert(a+b);
+        }
+    </script>
+
+            <!--Задание 4. 
+                Присвоить переменной а значение в промежутке [0..15]. 
+                С помощью оператора switch организовать вывод чисел от a до 15. 
+                Дополнительное задание. Сделайте решение вторым способом, используя рекурсию.-->
+
+    <script>
+        //с помощью switch
+        var a = +prompt("введите число от 0 до 15");
+            switch (a) {
+                case 0:
+                console.log(0);
+                case 1:
+                console.log(1);
+            case 2:
+                console.log(2);
+                case 3:
+                console.log(3);
+            case 4:
+                console.log(4);
+                case 5:
+                console.log(5);
+            case 6:
+                console.log(6);
+                case 7:
+                console.log(7);
+            case 8:
+                console.log(8);
+                case 9:
+                console.log(9);
+            case 10:
+                console.log(10);
+                case 11:
+                console.log(11);
+            case 12:
+                console.log(12);
+                case 13:
+                console.log(13);
+            case 14:
+                console.log(14);
+                case 15:
+                console.log(15);
+            }
+
+        //с помощью рекурсии 
+        var n = (Math.random()*15).toFixed(0);
+        function f(n) {
+            if(n==15) {
+            console.log(n);
+            return 0;
+            }
+        console.log(n++);
+        f(n);
+        }
+        f(n);
+    </script>
+
+    <!--Задание 5. 
+        Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. 
+        Обязательно использовать оператор return.-->
+
+    <script>
+        var a, b;
+
+        function sum(a,b) {
+            return a+b;
+        }
+
+        function sub(a,b) {
+            return a-b;
+        }
+
+        function mult(a,b) {
+            return a*b;
+        }
+
+        function div(a,b) {
+            return a/b;
+        }
+    </script>
+
+        <!--Задание 6. 
+            Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), 
+            где arg1, arg2 – значения аргументов, operation – строка с названием операции. 
+            В зависимости от переданного значения операции 
+            выполнить одну из арифметических операций (использовать функции из пункта 5) 
+            и вернуть полученное значение (использовать switch).-->
+    <script>
+        var arg1 = +prompt("Введите значение первого аргумента");
+        var arg2 = +prompt("Введите значение второго аргумента");
+        var operation = prompt("Укажите оперцию: сложение, вычитание, умножение, деление");
+
+        function mathOperation(arg1, arg2, operation){
+    			switch(operation){
+       				 case 'сложение':
+           				 return arg1+arg2;
+           				 break;
+       				 case 'вычитание':
+           				 return arg1-arg2;
+            			 break;
+        			 case 'деление':
+                      			 return arg1/arg2;
+            			 break;
+       				 case 'умножение':
+           				 return arg1*arg2;
+            			 break;
+   				}
+		}
+
+    </script>
+
+        <!--Задание 7.
+            Сравнить null и 0. Попробуйте объяснить результат.-->
+
+            null == 0; //false
+            null >= 0; // true
+            null > 0; // false
+            null < 0; // false
+            null <= 0; // true
+            null != 0; // true
+
+</head>
+<body>
+    
+</body>
+</html>
