@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = prompt('Введите число от 0 до 999');
+        
+        var order = {};
+        function f(num) {
+            if(isNaN(num)){
+                console.log("Вы ввели неверное значение. Укажите число от 0 до 999");
+            } else if(num<0 || num>999) {
+                console.log("Введите число в диапазоне от 0 до 999");
+                var order = {};
+                
+                return order;
+            
+            } else if(num>10 && num<99) {
+                var order = {};
+                order.units = num[1];
+                order.decade = num[0];
+                delete order.hundreds;
+                    
+                return order;
+            
+            } else if(num>0 && num<9) {
+                var order = {};
+                order.units = num[0];
+                delete order.decade;
+                delete order.hundreds;
+                    
+                return order;
+            
+            } else {
+                var order = {};
+                order.units = num[2];
+                order.decade = num[1];
+                order.hundreds = num[0];  
+        
+                return order;
+            }
+        }
+        console.log(f(num));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
