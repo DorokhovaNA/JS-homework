@@ -1,0 +1,7 @@
+td {
+    text-align: center;
+}
+
+.tdd-rotate {
+    transform: rotateX(180deg);
+}
