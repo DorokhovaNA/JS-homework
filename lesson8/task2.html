@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if (!("a" in window)) {
+            var a = 1;
+        }
+        alert(a); 
+
+        //Атрибута «a» в window нет, и ему там неоткуда появится после if, поэтому undefined.
+
+        var b = function a(x) {
+            x && a(--x);
+        };
+        alert(a);
+
+        // переменная а здесь undefined, a видно только внутри функции b.
+
+        function a(x) {
+            return x * 2;
+        }
+        var a;
+        alert(a);
+
+        //в тело функции не передаем парметры, поэтому выведет тело функции
+
+        function b(x, y, a) {
+            arguments[2] = 10;
+            alert(a);
+        }
+        b(1, 2, 3);
+        //внутри функции передаем значение 3-му параметру а (индекс [2] = 3 параметр, т.к. индекс считаются от 0), поэтому результат 10
+
+        function a() {
+            alert(this);
+        }
+        a.call(null);
+
+        //this в глобальной области указывает на window. Вызов call() у функции с параметром null равнозначно вызову call() без аргументов. А без аргументов вызываемая функция привяжется к «объекту по умолчанию» — window
+    </script>
+</body>
+</html>
+
+
+
